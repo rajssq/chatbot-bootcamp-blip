@@ -45,7 +45,7 @@ Chatbot para responder perguntas sobre RFPs utilizando Node.js, React, MongoDB e
 ### 1. Clone o Repositório
 
 ```bash
-git clone [URL-DO-REPOSITORIO]
+git clone https://github.com/rajssq/chatbot-bootcamp-blip.git
 cd chatbot-rfp
 ```
 
