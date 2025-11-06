@@ -46,27 +46,29 @@ Chatbot para responder perguntas sobre RFPs utilizando Node.js, React, MongoDB e
 
 ```bash
 git clone https://github.com/rajssq/chatbot-bootcamp-blip.git
-cd chatbot-rfp
+cd chatbot-bootcamp-blip
 ```
 
-### 2. Crie sua Branch de Trabalho
-
-⚠️ **IMPORTANTE**: Sempre crie uma branch antes de instalar as dependências!
+### 2. Instale as Dependências
 
 ```bash
-# Crie sua branch a partir da main
-git checkout -b feat/seu-nome/sua-task
-```
-
-### 3. Instale as Dependências
-
-Agora sim, instale todas as dependências:
-
-```bash
-# Instala dependências da raiz, server e client
 npm run install-all
 ```
 
+### 3. Crie sua branch
+
+```bash
+git checkout -b feat/seu-nome/sua-task
+```
+### 4. Quando for trocar de branch
+```bash
+# volte p main
+git checkout main
+# atualize ela
+git pull origin main
+# crie a nova branch
+git checkout -b feat/seu-nome/nova-task
+```
 ## ⚙️ Configuração
 
 > ⚠️ **As configurações de banco de dados e APIs serão definidas durante o desenvolvimento.**
