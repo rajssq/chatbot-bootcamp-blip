@@ -92,27 +92,6 @@ npm run server  # Backend na porta 5000
 npm run client  # Frontend na porta 3000
 ```
 
-## 📁 Estrutura do Projeto
-
-```
-chatbot-rfp/
-├── server/           # Backend Node.js + Express
-│   ├── src/
-│   │   ├── controllers/    # Lógica de negócio
-│   │   ├── models/         # Schemas do MongoDB
-│   │   ├── routes/         # Endpoints da API
-│   │   ├── config/         # Configurações (DB, AI)
-│   │   └── server.js       # Arquivo principal
-│   └── package.json
-├── client/           # Frontend React
-│   ├── src/
-│   ├── public/
-│   └── package.json
-├── docs/            # Documentação detalhada
-├── package.json     # Configuração raiz
-└── README.md
-```
-
 # 🌿 Workflow Git - Boas Práticas
 
 ### Estrutura de Branches
