@@ -45,26 +45,31 @@ Chatbot para responder perguntas sobre RFPs utilizando Node.js, React, MongoDB e
 ### 1. Clone o Repositório
 
 ```bash
-git clone [URL-DO-REPOSITORIO]
-cd chatbot-rfp
+git clone https://github.com/rajssq/chatbot-bootcamp-blip.git
+cd chatbot-bootcamp-blip
 ```
 
-### 2. Crie sua Branch de Trabalho
-
-⚠️ **IMPORTANTE**: Sempre crie uma branch antes de instalar as dependências!
+### 2. Instale as Dependências
 
 ```bash
-# Crie sua branch a partir da main
+npm run install-all
+```
+
+### 3. Crie sua branch
+
+```bash
 git checkout -b feat/seu-nome/sua-task
 ```
 
-### 3. Instale as Dependências
-
-Agora sim, instale todas as dependências:
+### 4. Quando for trocar de branch
 
 ```bash
-# Instala dependências da raiz, server e client
-npm run install-all
+# volte p main
+git checkout main
+# atualize ela
+git pull origin main
+# crie a nova branch
+git checkout -b feat/seu-nome/nova-task
 ```
 
 ## ⚙️ Configuração
@@ -88,27 +93,6 @@ npm run dev
 # Ou rodar separadamente:
 npm run server  # Backend na porta 5000
 npm run client  # Frontend na porta 3000
-```
-
-## 📁 Estrutura do Projeto
-
-```
-chatbot-rfp/
-├── server/           # Backend Node.js + Express
-│   ├── src/
-│   │   ├── controllers/    # Lógica de negócio
-│   │   ├── models/         # Schemas do MongoDB
-│   │   ├── routes/         # Endpoints da API
-│   │   ├── config/         # Configurações (DB, AI)
-│   │   └── server.js       # Arquivo principal
-│   └── package.json
-├── client/           # Frontend React
-│   ├── src/
-│   ├── public/
-│   └── package.json
-├── docs/            # Documentação detalhada
-├── package.json     # Configuração raiz
-└── README.md
 ```
 
 # 🌿 Workflow Git - Boas Práticas
