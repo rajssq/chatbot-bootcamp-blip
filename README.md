@@ -28,13 +28,28 @@ cd chatbot-bootcamp-blip
 ```bash
 npm install
 ```
+### 3. Configure as Variáveis de Ambiente
 
-### 3. Rodar o projeto
+Crie um arquivo `.env` na raiz do projeto:
+
+```bash
+SLACK_BOT_TOKEN=xoxb-seu-token-aqui
+SLACK_APP_TOKEN=xapp-seu-token-aqui
+SEND_MODE=DRY_RUN
+```
+
+### 4. Rodar o projeto
 
 ```bash
 node app.js
 ```
 
+### 5. Testar o bot
+
+- Mande uma mensagem no chat do bot
+- Mande um pdf no chat do bot
+  **Resultado esperado**: Mensagens de sucessos em ambas no terminal.
+---
 **Pacotes incluídos:**
 
 - `@slack/bolt` - SDK oficial do Slack
@@ -45,16 +60,6 @@ node app.js
 - Processamento de documentos: Libraries para PDF/DOCX (ex: pdf-parse, mammoth)
 - MongoDB: Driver oficial ou Mongoose + Atlas Vector Search
 - OpenAI: SDK oficial para embeddings e completions
-
-### 3. Configure as Variáveis de Ambiente
-
-Crie um arquivo `.env` na raiz do projeto:
-
-```bash
-SLACK_BOT_TOKEN=xoxb-seu-token-aqui
-SLACK_APP_TOKEN=xapp-seu-token-aqui
-SEND_MODE=DRY_RUN
-```
 
 ---
 
