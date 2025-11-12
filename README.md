@@ -9,7 +9,7 @@ Chatbot para responder perguntas sobre RFPs utilizando Node.js, MongoDB e OPEN A
 1. Usuário envia documento RFP no Slack
 2. Bot extrai perguntas do documento
 3. Busca respostas similares no MongoDB (usando embeddings/vector search)
-4. Google AI gera resposta baseada no contexto recuperado
+4. OPEN AI gera resposta baseada no contexto recuperado
 5. Bot responde no Slack
 
 ---
