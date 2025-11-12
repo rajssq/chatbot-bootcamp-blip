@@ -19,7 +19,7 @@ Chatbot para responder perguntas sobre RFPs utilizando Node.js, MongoDB e OPEN A
 ### 1. Clone o Repositório
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/rajssq/chatbot-bootcamp-blip.git
 cd chatbot-bootcamp-blip
 ```
 
