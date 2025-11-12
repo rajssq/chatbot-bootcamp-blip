@@ -36,7 +36,7 @@ Crie um arquivo `.env` na raiz do projeto:
 SLACK_BOT_TOKEN=xoxb-seu-token-aqui
 SLACK_APP_TOKEN=xapp-seu-token-aqui
 SEND_MODE=DRY_RUN
-MONGODB_URI=mongodb+srv://bot_user:senha@cluster0.nedicvh.mongodb.net/?appName=Cluster0
+MONGODB_URI=mongodb+srv://...
 ```
 
 ### 4. Rode o Projeto
