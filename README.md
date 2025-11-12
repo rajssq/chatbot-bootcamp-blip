@@ -1,16 +1,6 @@
 # Chatbot RFP - Blip Bootcamp
 
-Chatbot para responder perguntas sobre RFPs utilizando Node.js, MongoDB e OPEN AI.
-
----
-
-## 🏗️ Arquitetura
-
-1. Usuário envia documento RFP no Slack
-2. Bot extrai perguntas do documento
-3. Busca respostas similares no MongoDB (usando embeddings/vector search)
-4. OPEN AI gera resposta baseada no contexto recuperado
-5. Bot responde no Slack
+Chatbot para responder perguntas sobre RFPs utilizando Node.js, MongoDB e OpenAI.
 
 ---
 
@@ -28,38 +18,42 @@ cd chatbot-bootcamp-blip
 ```bash
 npm install
 ```
+
+**Pacotes incluídos:**
+
+- `@slack/bolt` - SDK oficial do Slack
+- `dotenv` - Gerenciamento de variáveis de ambiente
+- `mongoose` - ODM para MongoDB
+- `mongodb` - Driver nativo do MongoDB
+- `axios` - Cliente HTTP
+- `pdfjs-dist@3.11.174` - Extração de texto de PDFs
+
 ### 3. Configure as Variáveis de Ambiente
 
 Crie um arquivo `.env` na raiz do projeto:
 
-```bash
+```properties
 SLACK_BOT_TOKEN=xoxb-seu-token-aqui
 SLACK_APP_TOKEN=xapp-seu-token-aqui
 SEND_MODE=DRY_RUN
+MONGODB_URI=mongodb+srv://bot_user:senha@cluster0.nedicvh.mongodb.net/?appName=Cluster0
 ```
 
-### 4. Rodar o projeto
+### 4. Rode o Projeto
 
 ```bash
 node app.js
 ```
 
-### 5. Testar o bot
+### 5. Teste o Bot
 
-- Mande uma mensagem no chat do bot
-- Mande um pdf no chat do bot
-  **Resultado esperado**: Mensagens de sucessos em ambas no terminal.
----
-**Pacotes incluídos:**
+- Envie uma mensagem de texto no chat do bot
+- Envie um arquivo PDF no chat do bot
 
-- `@slack/bolt` - SDK oficial do Slack
-- `dotenv` - Gerenciamento de variáveis de ambiente
+**✅ Resultado esperado:**
 
-**🔧 Tecnologias Futuras**
-
-- Processamento de documentos: Libraries para PDF/DOCX (ex: pdf-parse, mammoth)
-- MongoDB: Driver oficial ou Mongoose + Atlas Vector Search
-- OpenAI: SDK oficial para embeddings e completions
+- Mensagens de texto retornam confirmação
+- PDFs são processados e o texto extraído aparece no terminal em formato JSON
 
 ---
 
@@ -81,6 +75,11 @@ git pull origin main
 
 # 2. Crie sua branch: tipo/seu-nome/descrição-da-task
 git checkout -b feat/seu-nome/nome-da-task
+
+# 3. Após finalizar
+git add .
+git commit -m "feat: descrição da feature"
+git push origin feat/seu-nome/nome-da-task
 ```
 
 ---
