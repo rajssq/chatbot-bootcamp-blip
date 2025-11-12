@@ -1,7 +1,8 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; // Desabilitar verificação SSL (apenas para desenvolvimento)
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 require("dotenv").config();
 const { App } = require("@slack/bolt");
+const { connectDB } = require("./src/db");
 
 // Inicializa o app com Socket Mode
 const app = new App({
@@ -39,8 +40,18 @@ app.event("file_shared", async ({ event, client }) => {
   }
 });
 
-// Inicia o bot
+// Inicia o bot e conecta no banco
 (async () => {
-  await app.start();
-  console.log("⚡️ Bot está rodando!");
+  try {
+    console.log(" Conectando no MongoDB...");
+    await connectDB();
+
+    console.log(" Iniciando bot...");
+    await app.start();
+
+    console.log("⚡️ Bot está rodando!");
+  } catch (error) {
+    console.error(" Erro ao iniciar:", error);
+    process.exit(1);
+  }
 })();
