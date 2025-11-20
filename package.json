@@ -18,11 +18,17 @@
   },
   "homepage": "https://github.com/rajssq/chatbot-bootcamp-blip#readme",
   "dependencies": {
+    "@langchain/community": "^0.3.0",
+    "@langchain/core": "^0.3.0",
+    "@langchain/mongodb": "^0.1.0",
+    "@langchain/openai": "^0.3.0",
     "@slack/bolt": "^4.6.0",
     "axios": "^1.13.2",
     "dotenv": "^17.2.3",
+    "langchain": "^0.3.0",
     "mongodb": "^7.0.0",
     "mongoose": "^8.19.3",
+    "openai": "^4.0.0",
     "pdfjs-dist": "^3.11.174"
   }
 }

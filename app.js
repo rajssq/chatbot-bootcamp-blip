@@ -4,6 +4,7 @@ require("dotenv").config();
 const { App } = require("@slack/bolt");
 const { connectDB } = require("./src/db");
 const { extractTextFromPDF } = require("./src/pdfHandler");
+const ragService = require("./src/ragService");
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -28,17 +29,41 @@ app.message(async ({ message, say, client }) => {
         const resultado = await extractTextFromPDF(arquivo.id, client);
         console.log("📄 Conteúdo extraído:", resultado);
 
+        // Indexa o documento no RAG
+        await ragService.indexDocument(resultado.nomeArquivo, resultado.texto, {
+          pageCount: resultado.paginas,
+          slackFileId: arquivo.id,
+          slackChannelId: message.channel,
+        });
+
+        const resposta = `Documento "${resultado.nomeArquivo}" processado e indexado com sucesso! (${resultado.paginas} páginas)\n\nAgora você pode fazer perguntas sobre o conteúdo do documento.`;
+
         if (process.env.SEND_MODE === "DRY_RUN") {
-          console.log("[DRY_RUN] PDF processado e texto extraído");
+          console.log("[DRY_RUN]", resposta);
+        } else {
+          await say(resposta);
         }
 
         return;
       }
     }
 
-    // Processa mensagens de texto normais
+    // Processa mensagens de texto normais usando RAG
     if (message.text) {
-      const resposta = `Olá! Recebi sua mensagem: "${message.text}"`;
+      console.log("🤔 Processando pergunta:", message.text);
+
+      // Gera resposta usando RAG
+      const result = await ragService.generateResponse(message.text);
+
+      let resposta = result.answer;
+
+      // Adiciona fontes se houver
+      if (result.sources && result.sources.length > 0) {
+        const sourcesText = result.sources
+          .map(s => `- ${s.filename} (similaridade: ${s.similarity})`)
+          .join("\n");
+        resposta += `\n\n📚 *Fontes:*\n${sourcesText}`;
+      }
 
       if (process.env.SEND_MODE === "DRY_RUN") {
         console.log("[DRY_RUN]", resposta);
